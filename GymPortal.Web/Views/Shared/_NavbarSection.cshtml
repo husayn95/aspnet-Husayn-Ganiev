@@ -1,0 +1,78 @@
+@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+}
+
+<section class="navbar-section">
+
+    <div class="hero-navbar">
+
+        <div class="hero-logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="/images/logotype.png" alt="Logo" />
+            </a>
+        </div>
+
+        <div class="hero-menu">
+
+            <div class="menu-item dropdown">
+                <button class="menu-link hover:bg-lime-300 px-2 py-1 rounded">Fitness Centers ▾</button>
+                <div class="dropdown-content">
+                    <ul>
+                        <li><a href="#">New York</a></li>
+                        <li><a href="#">Stockholm</a></li>
+                        <li><a href="#">Barcelona</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <a class="menu-link @(currentController == "Memberships" ? "active" : "")"
+                asp-controller="Memberships" asp-action="Index">
+                Memberships
+            </a>
+
+            <div class="menu-item dropdown">
+                <button class="menu-link hover:bg-lime-300 px-2 py-1 rounded">Training ▾</button>
+                <div class="dropdown-content">
+                    <ul>
+                        <li><a href="#" class="block">Personal Training</a></li>
+                        <li><a href="#" class="block">Group Training</a></li>
+                        <li><a href="#" class="block">Padel</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <a class="menu-link @(currentController == "CustomerService" ? "active" : "")"
+                asp-controller="CustomerService" asp-action="Index">
+                Customer Service
+            </a>
+
+
+            <a class="menu-link ">
+                Store
+            </a>
+        </div>
+
+        <div class="hero-right">
+
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <a class="menu-link hover:bg-lime-300 px-3 py-1 rounded" asp-controller="GymClass" asp-action="Index">
+                    Our classes
+                </a>
+
+                <a class="sign-btn" asp-controller="Account" asp-action="MyAccount">My account</a>
+            }
+            else
+            {
+                <a class="become-btn" asp-controller="Account" asp-action="Register">Become Member</a>
+
+                <a class="sign-btn" asp-controller="Account" asp-action="Login">Sign In</a>
+            }
+
+        </div>
+
+    </div>
+
+   
+
+</section>

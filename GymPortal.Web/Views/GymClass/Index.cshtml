@@ -1,0 +1,8 @@
+@model List<GymPortal.Domain.Entities.GymClass>
+
+<div class="gym-grid">
+    @foreach (var gymClass in Model)
+    {
+        <partial name="_GymClass" model="gymClass" />
+    }
+</div>

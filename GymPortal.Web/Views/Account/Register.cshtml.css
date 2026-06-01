@@ -1,0 +1,249 @@
+.register-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  min-height: 100vh;
+  background: #f7f7f7;
+  padding: 100px 24px 60px;
+  box-sizing: border-box;
+}
+
+.register-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 48px 48px 40px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.register-card,
+.register-card * {
+  color: #111 !important;
+}
+
+.register-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #111 !important;
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+
+.register-subtitle {
+  font-size: 13px;
+  color: #666 !important;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+.register-divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 0 0 28px;
+}
+
+.register-errors {
+  font-size: 13px;
+  margin-bottom: 16px;
+  color: #111 !important;
+  background: transparent !important;
+}
+
+.register-errors ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #c00 !important;
+}
+
+.register-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.social-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.social-btn:hover {
+  border-color: #aaa;
+}
+
+.social-btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.register-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  color: #aaa !important;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.register-or::before,
+.register-or::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e8e8e8;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.register-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.register-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.register-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333 !important;
+}
+
+.register-field input {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 14px;
+  color: #333 !important;
+  background: #f7f7f7;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.register-field input:focus {
+  border-color: #d6ef26;
+  background: #fff;
+}
+
+.register-error {
+  font-size: 12px;
+  color: #e53935 !important;
+}
+
+.register-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: #d6ef26;
+  color: #111 !important;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  border-radius: 999px;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.register-btn span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.register-btn:hover {
+  background: #c8e020;
+}
+
+.register-note {
+  font-size: 12px;
+  color: #888 !important;
+  text-align: center;
+  margin: 0;
+}
+
+.register-terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #555 !important;
+}
+
+.register-terms input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #d6ef26;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .register-card {
+    padding: 32px 20px;
+  }
+
+  .register-title {
+    font-size: 28px;
+  }
+
+  .register-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.register-back {
+  background: none;
+  border: none;
+  color: #666 !important;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.register-back:hover {
+  color: #111 !important;
+}
+
+.readonly-input {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.register-note {
+  font-size: 12px;
+  color: #888 !important;
+  text-align: center;
+  margin: 0;
+}
+
+.req {
+  color: #e53935 !important;
+}

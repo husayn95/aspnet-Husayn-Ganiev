@@ -1,0 +1,63 @@
+@model List<GymPortal.Domain.Entities.Booking>
+
+<h2 class="mb-4">My Bookings</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        You have no bookings yet.
+    </div>
+}
+else
+{
+    <div class="row">
+
+        @foreach (var booking in Model)
+        {
+            <div class="col-md-4 mb-3">
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <h5>
+                            @booking.GymClass.Name
+                        </h5>
+
+                        <p>
+                            <strong>Instructor:</strong>
+                            @booking.GymClass.Instructor
+                        </p>
+
+                        <p>
+                            <strong>Date:</strong>
+                            @booking.GymClass.StartTime.ToString("yyyy-MM-dd")
+                        </p>
+
+                        <p>
+                            <strong>Time:</strong>
+                            @booking.GymClass.StartTime.ToString("HH:mm")
+                        </p>
+
+                        <form asp-action="Cancel"
+                              method="post">
+
+                            <input type="hidden"
+                                   name="id"
+                                   value="@booking.Id" />
+
+                            <button class="btn btn-danger">
+                                Cancel Booking
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+}

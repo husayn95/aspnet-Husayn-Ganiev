@@ -1,0 +1,39 @@
+@model GymPortal.Domain.Entities.GymClass
+
+<div class="gym-card">
+
+    <div class="gym-card-body">
+        <div class="gym-title">@Model.Name</div>
+
+        <p><span>Instructor:</span> @Model.Instructor</p>
+        <p><span>Category:</span> @Model.Category</p>
+        <p><span>Start:</span> @Model.StartTime.ToString("yyyy-MM-dd HH:mm")</p>
+        <p>
+            <span>Capacity:</span>
+            @(Model.Bookings?.Count ?? 0) / @Model.Capacity
+        </p>
+    </div>
+
+    <div class="gym-actions">
+
+        @if ((Model.Bookings?.Count ?? 0) >= Model.Capacity)
+        {
+            <button class="btn-full" disabled>Full</button>
+        }
+        else if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form asp-controller="GymClass" asp-action="Book" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <button type="submit" class="btn-book">Book</button>
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Login" class="btn-login">
+                Login
+            </a>
+        }
+
+    </div>
+
+</div>

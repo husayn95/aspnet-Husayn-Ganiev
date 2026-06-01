@@ -1,0 +1,62 @@
+@model GymPortal.Web.ViewModels.LoginViewModel
+
+<div class="login-page">
+    <div class="login-card">
+
+        <h1 class="login-title">Welcome Back!</h1>
+        <p class="login-subtitle">Log in to continue your fitness journey with full access to your customized program, training history, and progress tracking. Stay consistent, monitor your development, and keep moving forward with the structure and support built into your account.</p>
+
+        <hr class="login-divider" />
+
+        <div asp-validation-summary="All" class="login-errors"></div>
+
+        <div class="login-social">
+            <a href="#" class="social-btn" title="Google">
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
+            </a>
+            <a href="#" class="social-btn" title="Facebook">
+                <img src="https://www.svgrepo.com/show/448224/facebook.svg" alt="Facebook" />
+            </a>
+            <a href="#" class="social-btn" title="GitHub">
+                <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" />
+            </a>
+        </div>
+
+        <div class="login-or">
+            <span>OR CONTINUE WITH</span>
+        </div>
+
+        <form asp-action="Login" method="post" class="login-form">
+
+            <div class="login-field">
+                <label asp-for="Email" class="email">Email Address <span>*</span></label>
+                <input asp-for="Email" placeholder="Enter Email Address" />
+                <span asp-validation-for="Email" class="login-error"></span>
+            </div>
+
+            <div class="login-field">
+                <div class="login-password-header">
+                    <label asp-for="Password">Password</label>
+                    <a href="#" class="login-forgot">Forgot your password?</a>
+                </div>
+                <input asp-for="Password" placeholder="Enter Password" />
+                <span asp-validation-for="Password" class="login-error"></span>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Continue <span>›</span>
+            </button>
+
+            <div class="login-terms">
+                <input type="checkbox" id="terms" />
+                <label for="terms">Accept user terms and conditions</label>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

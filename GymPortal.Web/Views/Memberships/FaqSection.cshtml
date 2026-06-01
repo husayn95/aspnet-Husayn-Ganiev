@@ -1,0 +1,89 @@
+<section class="faq-section">
+    <div class="faq-inner">
+
+        <div class="faq-image">
+            <img src="/images/training2.jpg" alt="Gym training" />
+        </div>
+
+        <div class="faq-content">
+            <span class="faq-badge">+ Frequently Asked Questions</span>
+            <h2 class="faq-title">Common questions about<br>gym and training</h2>
+
+            <div class="faq-list">
+
+                <div class="faq-item active">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Q1. Do I need prior gym experience to Join CoreFitness?</span>
+                        <span class="faq-icon">&#x2303;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, GymPro is designed for all fitness levels. Our trainers guide beginners with proper techniques and structured workout plans to help them start safely and confidently.</p>
+                        <ul>
+                            <li>Every new member receives a personalized introduction to equipments</li>
+                            <li>Workouts are designed to grow with you, ensuring beginners can start safely.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Q2. What facilities are included with the membership?</span>
+                        <span class="faq-icon">&#x2304;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>All memberships include access to our full gym floor, locker rooms, showers, and group fitness classes. Premium members also get access to the sauna and dedicated training zones.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Q3. Can I try the gym before taking a membership?</span>
+                        <span class="faq-icon">&#x2304;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a free 1-week trial for all new visitors. No credit card required — just sign up and come in to experience everything CoreFitness has to offer.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Q4. Are there group workout programs available?</span>
+                        <span class="faq-icon">&#x2304;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We run daily group classes including HIIT, yoga, spin, and strength circuits. Classes are included in all membership tiers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Q5. Is nutrition guidance included in the plans?</span>
+                        <span class="faq-icon">&#x2304;</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Premium members receive a personalized nutrition consultation with one of our certified coaches. Standard members can access our nutrition guide library online.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.faq-icon').innerHTML = '&#x2304;';
+        });
+
+        if (!isActive) {
+            item.classList.add('active');
+            btn.querySelector('.faq-icon').innerHTML = '&#x2303;';
+        }
+    }
+</script>

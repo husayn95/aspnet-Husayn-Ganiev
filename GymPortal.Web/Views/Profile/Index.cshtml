@@ -1,0 +1,26 @@
+@model GymPortal.Domain.Entities.ApplicationUser
+
+<h2 class="mb-3">My Page</h2>
+
+@await Html.PartialAsync("_ProfileCard", Model)
+
+<hr />
+
+<h3>My Bookings</h3>
+
+@if (!Model.Bookings.Any())
+{
+    <p>No bookings yet</p>
+}
+else
+{
+    <div class="d-flex flex-wrap">
+        @foreach (var b in Model.Bookings)
+        {
+            <div class="card m-2 p-2">
+                <h5>@b.GymClass.Name</h5>
+                <p>@b.GymClass.StartTime</p>
+            </div>
+        }
+    </div>
+}

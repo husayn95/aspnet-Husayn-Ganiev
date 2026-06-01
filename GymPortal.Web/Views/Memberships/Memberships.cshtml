@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "Memberships";
+}
+
+<section class="membership-section">
+    <div class="membership-inner">
+        <h1 class="membership-title">Our Membership Offers</h1>
+
+        <div class="membership-grid">
+
+            <div class="membership-card light">
+                <img class="membership-icon" src="/images/hantelicon.png" alt="Membership icon" />
+
+                <h2>Standard Membership</h2>
+
+                <p class="membership-desc">
+                    With the Standard Membership, get access to our full range of gym facilities.
+                </p>
+
+                <ul class="membership-list">
+                    <li>
+                        <img class="check-icon" src="/images/check-bot.png" alt="Check icon" />
+                        <span>Standard Locker</span>
+                    </li>
+                    <li>
+                        <img class="check-icon" src="/images/check-bot.png" alt="Check icon" />
+                        <span>High-energy group fitness classes</span>
+                    </li>
+                    <li>
+                        <img class="check-icon" src="/images/check-bot.png" alt="Check icon" />
+                        <span>Motivating & supportive environment</span>
+                    </li>
+                </ul>
+
+                <div class="membership-plan-footer">
+                    <div class="membership-price-row">
+                        <div>
+                            <div class="price">495<span>/monthly</span></div>
+                            <div class="price-note">* Monthly 20 Classes</div>
+                        </div>
+
+                        <a class="join-btn" asp-controller="Account" asp-action="Register">
+                            Join Now
+                        </a>
+                    </div>
+
+                    <p class="membership-trial">Try Any Membership Free for 1 Week</p>
+                </div>
+            </div>
+
+            <div class="membership-card light">
+                <img class="membership-icon" src="/images/hantelicon.png" alt="Membership icon" />
+
+                <h2>Premium Membership</h2>
+
+                <p class="membership-desc">
+                    With the Premium Membership, get access to our full range of gym facilities.
+                </p>
+
+                <ul class="membership-list">
+                    <li>
+                        <img class="check-icon" src="/images/check-bot.png" alt="Check icon" />
+                        <span>Priority Support & Premium Locker</span>
+                    </li>
+                    <li>
+                        <img class="check-icon" src="/images/check-bot.png" alt="Check icon" />
+                        <span>High-energy group fitness classes</span>
+                    </li>
+                    <li>
+                        <img class="check-icon" src="/images/check-bot.png" alt="Check icon" />
+                        <span>Motivating & supportive environment</span>
+                    </li>
+                </ul>
+
+                <div class="membership-plan-footer">
+                    <div class="membership-price-row">
+                        <div>
+                            <div class="price">595<span>/monthly</span></div>
+                            <div class="price-note">* Monthly 20 Classes</div>
+                        </div>
+
+                        <a class="join-btn" asp-controller="Account" asp-action="Register">
+                            Join Now
+                        </a>
+                    </div>
+
+                    <p class="membership-trial">Try Any Membership Free for 1 Week</p>
+                </div>
+            </div>
+
+            <div class="membership-card dark">
+                <h3>Get Your Membership</h3>
+
+                <p class="membership-side-text">
+                    Our memberships give you access to all equipment, personalized training.
+                </p>
+
+                <div class="membership-call">Call Us At: +(46) 8 410 521 00</div>
+
+                <a class="call-btn" href="#">Call Us Today!</a>
+
+                <img src="/images/teamwork.jpg" alt="Membership" class="membership-hero-img" />
+            </div>
+
+        </div>
+
+        <div class="membership-benefits">
+            <div class="benefit-item"><span>✓</span> Get 30 day free trial</div>
+            <div class="benefit-item"><span>✓</span> No any hidden fees pay</div>
+            <div class="benefit-item"><span>✓</span> You can cancel anytime</div>
+        </div>
+    </div>
+</section>

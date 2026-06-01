@@ -1,0 +1,90 @@
+
+.gym-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+}
+
+
+.gym-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 16px 20px;
+
+    transition: 0.2s ease;
+}
+
+.gym-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.gym-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #111827;
+    flex: 1;
+}
+
+.gym-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.gym-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 160px;
+    gap: 10px;
+}
+
+.gym-card-body p {
+    margin: 0;
+    font-size: 14px;
+    color: #111827;
+}
+
+.gym-card-body span {
+    font-weight: 600;
+}
+
+.btn-book, .btn-login, .btn-full {
+    width: 160px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-book {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-book:hover {
+    background: #15803d;
+}
+
+.btn-login {
+    background: #2563eb;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-full {
+    background: #9ca3af;
+    color: white;
+}

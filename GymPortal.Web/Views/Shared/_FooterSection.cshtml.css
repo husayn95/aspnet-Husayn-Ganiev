@@ -1,0 +1,133 @@
+.footer-section {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: 0;
+  padding: 24px 0;
+  background: #f7f7f7;
+}
+
+.footer {
+  position: static;
+  width: 100%;
+  margin-top: 0;
+  white-space: normal;
+  line-height: normal;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    background:
+        linear-gradient(rgba(18, 16, 28, 0.96), rgba(18, 16, 28, 0.96)),
+        url('/images/dark-section-bg.png') center center / cover no-repeat;
+    border-radius: 14px;
+    color: #fff;
+    padding: 34px 38px 24px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    height: 52px;
+    width: auto;
+    display: block;
+}
+
+.footer-title {
+    margin: 0;
+    text-align: right;
+    font-size: 26px;
+    line-height: 1.35;
+    font-weight: 500;
+    max-width: 640px;
+}
+
+.footer-divider {
+    height: 1px;
+    background: rgba(214, 239, 38, 0.22);
+    margin: 28px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.footer-left h3,
+.footer-hours h4 {
+    margin: 0 0 14px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer-left p,
+.footer-hours p {
+    margin: 0 0 10px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-map {
+    display: block;
+    width: 100%;
+    max-width: 290px;
+    height: auto;
+    margin: 18px 0 14px;
+}
+
+.footer-address {
+    max-width: 360px;
+}
+
+.footer-right {
+    display: grid;
+    gap: 34px;
+    justify-items: end;
+    text-align: right;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 900px) {
+    .footer-title {
+        text-align: left;
+        font-size: 22px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-right {
+        justify-items: start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-inner {
+        padding: 24px 18px 18px;
+    }
+
+    .footer-title {
+        font-size: 20px;
+    }
+
+    .footer-logo {
+        height: 44px;
+    }
+}

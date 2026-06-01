@@ -1,0 +1,125 @@
+
+@model GymPortal.Web.ViewModels.RegisterViewModel
+
+<div class="register-page">
+    <div class="register-card">
+
+        <div class="register-step" id="step1">
+            <h1 class="register-title">Become a Member</h1>
+            <p class="register-subtitle">Sign up to continue your fitness journey with full access to your customized program, training history, and progress tracking. Stay consistent, monitor your development, and keep moving forward with the structure and support built into your account.</p>
+
+            <hr class="register-divider" />
+
+            <div class="register-social">
+                <a href="#" class="social-btn" title="Google">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
+                </a>
+                <a href="#" class="social-btn" title="Facebook">
+                    <img src="https://www.svgrepo.com/show/448224/facebook.svg" alt="Facebook" />
+                </a>
+                <a href="#" class="social-btn" title="GitHub">
+                    <img src="https://www.svgrepo.com/show/512317/github-142.svg" alt="GitHub" />
+                </a>
+            </div>
+
+            <div class="register-or"><span>OR CONTINUE WITH</span></div>
+
+            <div class="register-field">
+                <label>Email Address <span class="req">*</span></label>
+                <input type="email" id="step1-email" placeholder="Enter Email Address" />
+                <span class="register-error" id="step1-error"></span>
+            </div>
+
+            <button type="button" class="register-btn" onclick="goToStep2()">
+                Continue <span>›</span>
+            </button>
+
+            <p class="register-note">We will send a verification code to your email address.</p>
+        </div>
+
+        <div class="register-step" id="step2" style="display:none;">
+            <button type="button" class="register-back" onclick="goToStep1()">← Back</button>
+
+            <h1 class="register-title">Set Your Password</h1>
+            <p class="register-subtitle">Set a strong password to protect your account. For security reasons, your password must be at least 6 characters long.</p>
+
+            <hr class="register-divider" />
+
+            <div asp-validation-summary="All" class="register-errors"></div>
+
+            <form asp-action="Register" method="post" class="register-form">
+
+                <input type="hidden" asp-for="Email" id="hidden-email" />
+
+                <div class="register-field">
+                    <label asp-for="Email">Email Address</label>
+                    <input asp-for="Email" id="display-email" placeholder="username@domain.com" readonly class="readonly-input" />
+                </div>
+
+                <div class="register-field">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" placeholder="Enter Password" />
+                    <span asp-validation-for="Password" class="register-error"></span>
+                </div>
+
+                <div class="register-field">
+                    <label asp-for="ConfirmPassword">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" placeholder="Confirm Password" />
+                    <span asp-validation-for="ConfirmPassword" class="register-error"></span>
+                </div>
+
+                <button type="submit" class="register-btn">
+                    Continue <span>›</span>
+                </button>
+
+                <div class="register-terms">
+                    <input type="checkbox" id="terms" required />
+                    <label for="terms">Accept user terms and conditions</label>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const hasErrors = document.querySelector('.register-errors ul li') !== null
+            || document.querySelector('.register-errors')?.innerText?.trim() !== '';
+
+        const hiddenEmail = document.getElementById('hidden-email');
+
+        if (hasErrors && hiddenEmail?.value) {
+            showStep2();
+        }
+
+        function goToStep2() {
+            const email = document.getElementById('step1-email').value.trim();
+            const error = document.getElementById('step1-error');
+
+            if (!email || !/^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/.test(email)) {
+                error.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            error.textContent = '';
+
+            document.getElementById('hidden-email').value = email;
+            document.getElementById('display-email').value = email;
+
+            showStep2();
+        }
+
+        function showStep2() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function goToStep1() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step1').style.display = 'block';
+        }
+    </script>
+}

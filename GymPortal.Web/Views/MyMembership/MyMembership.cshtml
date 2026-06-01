@@ -1,0 +1,112 @@
+@model GymPortal.Domain.Entities.Membership?
+
+@{
+    ViewData["Title"] = "My Membership";
+    bool hasMembership = Model != null;
+}
+
+<div class="mymembership-page">
+    <h1 class="mymembership-title">My Membership</h1>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="mymembership-alert success">@TempData["Success"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="mymembership-alert error">@TempData["Error"]</div>
+    }
+
+    @if (hasMembership)
+    {
+        <!-- Current Membership -->
+        <div class="mymembership-current">
+            <div class="mymembership-card active-card">
+                <div class="active-card-header">
+                    <div>
+                        <div class="active-card-label">Current Plan</div>
+                        <div class="active-card-type">@Model!.Type Membership</div>
+                    </div>
+                    <div class="active-card-badge @(Model.IsActive ? "badge-active" : "badge-inactive")">
+                        @(Model.IsActive ? "Active" : "Paused")
+                    </div>
+                </div>
+
+                <div class="active-card-details">
+                    <div class="active-card-detail">
+                        <span class="detail-label">Start Date</span>
+                        <span class="detail-value">@Model.StartDate.ToString("MMM dd, yyyy")</span>
+                    </div>
+                    <div class="active-card-detail">
+                        <span class="detail-label">Type</span>
+                        <span class="detail-value">@Model.Type</span>
+                    </div>
+                    <div class="active-card-detail">
+                        <span class="detail-label">Status</span>
+                        <span class="detail-value">@(Model.IsActive ? "Active" : "Paused")</span>
+                    </div>
+                    <div class="active-card-detail">
+                        <span class="detail-label">Price</span>
+                        <span class="detail-value">@(Model.Type.ToString() == "Premium" ? "595" : "495") kr/month</span>
+                    </div>
+                </div>
+
+                <form asp-controller="MyMembership" asp-action="Toggle" method="post">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="toggle-btn @(Model.IsActive ? "btn-pause" : "btn-resume")">
+                        @(Model.IsActive ? "Pause Membership" : "Resume Membership")
+                    </button>
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <!-- No membership — choose a plan -->
+        <p class="mymembership-subtitle">You don't have an active membership. Choose a plan below to get started.</p>
+
+        <div class="mymembership-grid">
+
+            <!-- Basic -->
+            <div class="mymembership-card plan-card">
+                <div class="plan-card-top">
+                    <h2>Basic Membership</h2>
+                    <div class="plan-price">495<span>/monthly</span></div>
+                    <p class="plan-note">* Monthly 20 Classes</p>
+                </div>
+                <ul class="plan-features">
+                    <li><span class="plan-check">✓</span> Standard Locker</li>
+                    <li><span class="plan-check">✓</span> High-energy group fitness classes</li>
+                    <li><span class="plan-check">✓</span> Motivating & supportive environment</li>
+                </ul>
+               <form asp-controller="MyMembership" asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="type" value="Basic" />
+    <button type="submit" class="plan-btn">Choose Basic <span>›</span></button>
+</form>
+            </div>
+
+            <!-- Premium -->
+            <div class="mymembership-card plan-card plan-card-dark">
+                <div class="plan-badge">Most Popular</div>
+                <div class="plan-card-top">
+                    <h2>Premium Membership</h2>
+                    <div class="plan-price">595<span>/monthly</span></div>
+                    <p class="plan-note">* Monthly 20 Classes</p>
+                </div>
+                <ul class="plan-features">
+                    <li><span class="plan-check">✓</span> Priority Support & Premium Locker</li>
+                    <li><span class="plan-check">✓</span> High-energy group fitness classes</li>
+                    <li><span class="plan-check">✓</span> Motivating & supportive environment</li>
+                </ul>
+                <form asp-controller="MyMembership" asp-action="Create" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="type" value="Premium" />
+                    <button type="submit" class="plan-btn">Choose Premium <span>›</span></button>
+                </form>
+            </div>
+
+        </div>
+    }
+
+</div>

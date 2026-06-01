@@ -1,0 +1,12 @@
+@model GymPortal.Domain.Entities.ApplicationUser
+
+<div class="card shadow p-3">
+    <h3>@Model.FirstName @Model.LastName</h3>
+
+    <p>Email: @Model.Email</p>
+
+    <p>
+        Membership:
+        @(Model.Membership?.Type.ToString() ?? "No membership")
+    </p>
+</div>

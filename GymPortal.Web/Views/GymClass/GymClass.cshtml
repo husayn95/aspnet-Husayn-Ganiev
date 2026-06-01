@@ -1,0 +1,59 @@
+@model GymPortal.Domain.Entities.GymClass
+
+<div class="card m-2" style="width: 22rem;">
+
+    <div class="card-body">
+
+        <h5 class="card-title">
+            @Model.Name
+        </h5>
+
+        <p>
+            <strong>Instructor:</strong>
+            @Model.Instructor
+        </p>
+
+        <p>
+            <strong>Category:</strong>
+            @Model.Category
+        </p>
+
+        <p>
+            <strong>Start:</strong>
+            @Model.StartTime.ToString("yyyy-MM-dd HH:mm")
+        </p>
+
+        <p>
+            <strong>Capacity:</strong>
+            @Model.Bookings.Count / @Model.Capacity
+        </p>
+
+        @if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form asp-controller="Classes"
+                  asp-action="Book"
+                  method="post">
+
+                <input type="hidden"
+                       name="id"
+                       value="@Model.Id" />
+
+                <button type="submit"
+                        class="btn btn-success">
+                    Book Class
+                </button>
+
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account"
+               asp-action="Login"
+               class="btn btn-primary">
+                Login to book
+            </a>
+        }
+
+    </div>
+
+</div>

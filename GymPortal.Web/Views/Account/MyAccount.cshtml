@@ -1,0 +1,118 @@
+@model GymPortal.Domain.Entities.ApplicationUser
+
+<div class="account-page">
+
+    <h1 class="account-page-title">My Account</h1>
+
+    <div class="account-layout">
+
+        <aside class="account-sidebar">
+
+            <div class="account-avatar">
+                <img src="/images/training2.jpg" alt="Profile" />
+            </div>
+
+            <div class="account-menu-card">
+                <div class="account-menu-header">Menu Options</div>
+                <ul class="account-menu-list">
+                    <li class="account-menu-item active">
+                        <a href="#about">About Me</a>
+                        <span>›</span>
+                    </li>
+                   <li class="account-menu-item">
+                        <a asp-controller="MyMembership" asp-action="Index">My Membership</a>
+                        <span>›</span>
+                    </li>
+                    <li class="account-menu-item">
+                        <a asp-controller="Bookings" asp-action="Index">My Bookings</a>
+                        <span>›</span>
+                    </li>
+                    <li class="account-menu-item">
+                        <form asp-controller="Account" asp-action="Logout" method="post" style="width:100%">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="account-signout-btn">Sign Out</button>
+                        </form>
+                        <span>›</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="account-remove">
+                <p>If you like to cancel your account click below.</p>
+                <form asp-controller="Account" asp-action="RemoveAccount" method="post"
+                      onsubmit="return confirm('Are you sure you want to remove your account?');">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="account-remove-btn">Remove Account</button>
+                </form>
+            </div>
+
+        </aside>
+
+        <main class="account-main">
+
+            <div class="account-card" id="about">
+                <h2 class="account-card-title">About Me</h2>
+
+                <div class="account-form">
+                    <div class="account-field">
+                        <label>First Name</label>
+                        <input type="text" value="@Model.FirstName" placeholder="Enter First Name" />
+                    </div>
+                    <div class="account-field">
+                        <label>Last Name</label>
+                        <input type="text" value="@Model.LastName" placeholder="Enter Last Name" />
+                    </div>
+                    <div class="account-field">
+                        <label>Email Address <span class="req">*</span></label>
+                        <input type="email" value="@Model.Email" placeholder="username@domain.com" readonly class="readonly-input" />
+                    </div>
+                    <div class="account-field">
+                        <label>Phone Number</label>
+                        <input type="tel" value="@Model.PhoneNumber" placeholder="Enter Phone Number" />
+                    </div>
+                    <div class="account-field">
+                        <label>Profile Image</label>
+                        <div class="account-file-row">
+                            <input type="text" placeholder="Upload Profile Image" readonly />
+                            <button type="button" class="account-browse-btn">Browse</button>
+                        </div>
+                    </div>
+
+                    <div class="account-save-row">
+                        <button type="button" class="account-save-btn">Save <span>›</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account-card" id="statistics">
+                <h2 class="account-card-title">My Statistics</h2>
+
+                <div class="account-stats">
+                    <div class="stat-row">
+                        <div class="stat-header">
+                            <span>Check-In (last 30 days)</span>
+                            <span class="stat-value">25</span>
+                        </div>
+                        <div class="stat-bar"><div class="stat-fill" style="width: 83%"></div></div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-header">
+                            <span>Weight Goal</span>
+                            <span class="stat-value">50%</span>
+                        </div>
+                        <div class="stat-bar"><div class="stat-fill" style="width: 50%"></div></div>
+                    </div>
+                    <div class="stat-row">
+                        <div class="stat-header">
+                            <span>Current BMI</span>
+                            <span class="stat-value">27</span>
+                        </div>
+                        <div class="stat-bar"><div class="stat-fill" style="width: 40%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+</div>
